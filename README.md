@@ -26,9 +26,9 @@
 
 ---
 
-## 🧾 Project
+## 🧾 Project <a id="project"></a>
 
-### 🔍 Latar Belakang
+### 🔍 Latar Belakang 
 Penentuan kematangan tandan sawit di lapangan sering dilakukan secara manual sehingga berpotensi menimbulkan **subjektivitas**, dipengaruhi **pencahayaan**, **sudut pengambilan**, dan **variasi warna**.  
 Penelitian ini mengevaluasi efektivitas pendekatan computer vision untuk membantu klasifikasi kematangan secara lebih konsisten.
 
@@ -39,7 +39,7 @@ Penelitian ini mengevaluasi efektivitas pendekatan computer vision untuk membant
 
 ---
 
-## 📦 Dataset
+## 📦 Dataset <a id="dataset"></a>
 - Jumlah kelas: **3** (Mentah, Matang, Busuk)  
 - Format: citra (JPG/PNG)  
 - Sumber dataset: https://drive.google.com/drive/folders/1bntbpLT_nFVjbDB1XLJcmQl9zQtdeBBI?usp=sharing
