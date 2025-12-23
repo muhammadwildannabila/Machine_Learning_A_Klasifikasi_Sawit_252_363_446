@@ -1,0 +1,13 @@
+streamlit>=1.36
+numpy
+pandas
+pillow
+joblib
+opencv-python-headless
+
+tensorflow>=2.16
+
+torch
+torchvision
+timm
+
