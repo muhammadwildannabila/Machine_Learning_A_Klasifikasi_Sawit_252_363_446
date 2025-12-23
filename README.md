@@ -10,16 +10,14 @@
    - [Latar Belakang](#latar-belakang)  
    - [Tujuan](#tujuan)  
 2. [Dataset](#dataset)
-3. [Eksperimen & Metodologi](#eksperimen--metodologi)  
+3. [Eksperimen & Metodologi](#eksperimen-metodologi)  
    - [Preprocessing](#preprocessing)  
    - [Splitting Data](#splitting-data)  
    - [Pemodelan](#pemodelan)  
    - [Pemilihan Best Model](#pemilihan-best-model)
-4. [Hasil Evaluasi & Analisis](#hasil-evaluasi--analisis)  
-   - [Ringkasan Performa](#ringkasan-performa)  
-   - [Confusion Matrix & Error Analysis](#confusion-matrix--error-analysis)  
+4. [Hasil Evaluasi & Analisis](#hasil-evaluasi-analisis)  
 5. [Cara Menjalankan (Lokal)](#cara-menjalankan-lokal)  
-6. [Link Live Demo](#link-live-demo)  
+6. [Link Demo Dashboard](#link-live-demo)  
 7. [Keterbatasan](#keterbatasan)
 8. [Struktur Folder](#struktur-folder) 
 9. [Kontributor](#kontributor)  
@@ -28,11 +26,11 @@
 
 ## 🧾 Project <a id="project"></a>
 
-### 🔍 Latar Belakang 
+### 🔍 Latar Belakang <a id="latar-belakang"></a>
 Penentuan kematangan tandan sawit di lapangan sering dilakukan secara manual sehingga berpotensi menimbulkan **subjektivitas**, dipengaruhi **pencahayaan**, **sudut pengambilan**, dan **variasi warna**.  
 Penelitian ini mengevaluasi efektivitas pendekatan computer vision untuk membantu klasifikasi kematangan secara lebih konsisten.
 
-### 🎯 Tujuan
+### 🎯 Tujuan <a id="tujuan"></a>
 1. Mengklasifikasikan kematangan sawit menjadi **Mentah / Matang / Busuk**.  
 2. Membandingkan performa **metode klasik**, **transfer learning**, dan **transformer-based**.  
 3. Menyediakan pipeline eksperimen yang rapi dan reproducible untuk kebutuhan riset/paper/poster.
@@ -47,13 +45,13 @@ Penelitian ini mengevaluasi efektivitas pendekatan computer vision untuk membant
 
 ---
 
-## 🧪 Eksperimen & Metodologi
+## 🧪 Eksperimen & Metodologi <a id="eksperimen-metodologi"></a>
 
 Bagian ini menjelaskan alur eksperimen dari penyiapan data hingga pemilihan model terbaik.  
 
 ---
 
-### 🧼 Preprocessing
+### 🧼 Preprocessing <a id="preprocessing"></a>
 Preprocessing dilakukan untuk menyamakan format input dan meningkatkan konsistensi citra.
 Langkah yang digunakan:
 - Koreksi orientasi **EXIF**
@@ -63,7 +61,7 @@ Langkah yang digunakan:
 
 ---
 
-### ✂️ Splitting Data
+### ✂️ Splitting Data <a id="splitting-data"></a>
 Dataset dibagi menjadi **train / validation / test** agar evaluasi adil dan tidak bias, sebagai berikut:
 - Train: 70%
 - Validation: 15%
@@ -71,7 +69,7 @@ Dataset dibagi menjadi **train / validation / test** agar evaluasi adil dan tida
 
 ---
 
-### 🧠 Pemodelan
+### 🧠 Pemodelan <a id="pemodelan"></a>
 Eksperimen dilakukan pada beberapa “keluarga” model untuk perbandingan menyeluruh.
 
 #### A) Classical ML
@@ -98,7 +96,7 @@ Eksperimen dilakukan pada beberapa “keluarga” model untuk perbandingan menye
 
 ---
 
-### 🏆 Pemilihan Best Model
+### 🏆 Pemilihan Best Model <a id="pemilihan-best-model"></a>
 Best model dipilih berdasarkan gabungan beberapa indikator:
 Kriteria pemilihan:
 - Performa evaluasi tertinggi pada data test (Accuracy dan Macro-F1).
@@ -113,14 +111,7 @@ Best model:
 
 ---
 
-## 📊 Hasil Evaluasi & Analisis
-
-Bagian ini merangkum performa model dan menganalisis pola kesalahan prediksi menggunakan metrik evaluasi serta confusion matrix.  
-Evaluasi dilakukan pada **test set** dan output disimpan pada folder `reports/` (CM, CR, kurva loss/acc, dll).
-
----
-
-### 🏆 Hasil Evaluasi & Analisis
+## 📊 Hasil Evaluasi & Analisis <a id="hasil-evaluasi-analisis"></a>
 
 Berikut ringkasan model terbaik per “keluarga” berdasarkan evaluasi pada test set:
 - **Best Classical:** **XGBoost + Color** 
@@ -137,89 +128,61 @@ Tabel ringkas:
 📌 **Alasan pemilihan model terbaik:**  
 Model dipilih berdasarkan **akurasi tinggi**, **stabilitas prediksi antar kelas**, dan (untuk TL/Transformer) **fine-tuning yang efisien** menggunakan LoRA sehingga lebih ringan dibanding full fine-tuning.
 
+---
+## 💻 Cara Menjalankan (Lokal) <a id="cara-menjalankan-lokal"></a>
 
+Bagian ini menjelaskan cara menjalankan project secara lokal.
+### 1) Clone repository & masuk folder project
+`git clone https://github.com/USERNAME/NAMA_REPO.git
+cd NAMA_REPO/`
 
+### 2) Buat virtual environment
+Windows (PowerShell):
+`python -m venv .venv`
+`.\.venv\Scripts\Activate.ps1`
 
+### 3) Install dependency
+Jika menggunakan requirements.txt:
+`python -m pip install --upgrade pip`
+`python -m pip install -r requirements.txt`
 
+### 4) Jalankan Demo Aplikasi (Streamlit)
+`python -m streamlit run src/app.py`
 
+## 🔗 Link Demo Dashboard <a id="link-live-demo"></a>
 
+Aplikasi/hasil demo dapat diakses oleh pengguna lain melalui link berikut:
+- **Live Demo:** https://dashboardklasifikasisawit252363446.streamlit.app/
 
-
-
-
-
-# 🌴 Oil Palm Ripeness Classification — Classical ML vs Transfer Learning vs Transformers
-
-**Klasifikasi kematangan buah kelapa sawit berbasis citra** untuk 3 kelas: **Mentah, Matang, Busuk**.  
-Repositori ini menyajikan **pipeline eksperimen end-to-end** yang terstruktur, reproducible, dan berorientasi evaluasi:  
-**dataset → split → EDA → preprocessing → classical ML → pretrained TL → transformers → evaluation & error analysis**.
+📌 Jika link sedang tidak bisa diakses, project tetap dapat dijalankan secara lokal pada bagian **Cara Menjalankan (Lokal)**.
 
 ---
 
-## 📌 Highlights
-- ✅ *Scientific workflow:* preprocessing terdefinisi, split train/val/test, evaluasi terstandar.
-- ✅ *Multi-family comparison:* **Classical ML**, **Transfer Learning**, dan **Transformer-based**.
-- ✅ Output paper-ready: **Accuracy, Macro-F1, Confusion Matrix, Learning Curves, Error Analysis**.
-- ✅ Struktur folder eksperimen rapi (expA/expB/expC).
+## ⚠️ Keterbatasan <a id="keterbatasan"></a>
+
+Beberapa keterbatasan pada project ini:
+1. **Sensitif terhadap kondisi foto**  
+   Performa dapat menurun pada pencahayaan ekstrem (terlalu gelap/terang), blur, atau background terlalu ramai.
+
+2. **Kemiripan visual antar kelas**  
+   Pada kelas transisi kematangan, perbedaan visual bersifat gradual sehingga berpotensi menimbulkan prediksi ambigu.
+
+3. **Model klasik bergantung pada fitur**  
+   Perubahan warna akibat lighting dapat memengaruhi hasil ekstraksi fitur (mis. HSV/tekstur), sehingga error bisa meningkat pada kondisi tertentu.
+
+Rencana perbaikan:
+- Menambah data dengan variasi pencahayaan, sudut, dan background.
+- Augmentasi yang lebih robust namun tetap realistis.
 
 ---
 
-## 🎯 Problem Statement
-Penentuan kematangan sawit di lapangan sering dilakukan secara manual sehingga berpotensi menimbulkan **variabilitas kualitas** dan **inefisiensi**.  
-Studi ini mengevaluasi efektivitas pendekatan **computer vision** untuk klasifikasi kematangan sawit.
+## 👥 Kontributor <a id="kontributor"></a>
 
----
-
-## 🧪 Research Objectives
-1. Mengklasifikasikan kematangan buah sawit menjadi **Mentah / Matang / Busuk**.
-2. Membandingkan performa **metode klasik**, **transfer learning**, dan **transformer**.
-3. Menyediakan pipeline eksperimen yang **reproducible** untuk kebutuhan riset/paper/poster.
-
----
-
-## 📦 Dataset
-- Jumlah kelas: **3** (Mentah, Matang, Busuk)
-- Format: citra (JPG/PNG)
-- Split: **train / val / test**
-
----
-
-## 🧹 Preprocessing
-- Koreksi orientasi **EXIF**
-- Resize & standardisasi ukuran (**224×224** untuk deep models)
-- Normalisasi warna (opsional: Gray World)
-- Simpan hasil preprocessing (JPEG quality 90) + verifikasi before/after
-
----
-
-## 🏆 Key Results (Summary)
-- **Best Classical:** **XGBoost + Color**  — **Acc 97%**
-- **Best Transfer:** **EfficientNet-B0 + LoRA** — **Acc 97%** *(paling efisien untuk otomasi)*
-- **Best Transformer:** **MaxViT-T + LoRA** — **Acc 98%** *(prediksi stabil antar kelas)*
-
----
-
-## 👥 Kontributor
-| Anggota Kelompok | NIM |
-|---|---|
+| Nama | NIM |
+|------|-----|
 | Muhammad Wildan Nabila | 202210370311252 |
-| Diemas Andung Prayoga | 202210370311363 |
 | Irawana Juwita | 202210370311446 |
+| Diemas Andung Prayoga | 202210370311363 |
 
----
 
-**Struktur yang direkomendasikan:**
-```bash
-dataset_sawit_split/
-  train/
-    mentah/
-    matang/
-    busuk/
-  val/
-    mentah/
-    matang/
-    busuk/
-  test/
-    mentah/
-    matang/
-    busuk/
+
