@@ -1,1 +1,8 @@
-.venv/ __pycache__/ *.py[cod] .DS_Store .ipynb_checkpoints/
+@"
+.venv/
+.pdm-python
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+"@ | Set-Content -Encoding utf8 .gitignore
