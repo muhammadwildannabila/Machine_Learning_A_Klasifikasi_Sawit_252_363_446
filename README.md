@@ -57,14 +57,14 @@ The best-performing model from each paradigm is evaluated and deployed in a **re
 ### 📷 Sample Images per Class
 
 <div align="center">
-  <img src="gambar/sample_per_kelas.png" width="850">
+  <img src="gambar/citra perkelas.png" width="850">
   <p><em>Figure 1. Representative samples of oil palm fruit images for each ripeness class</em></p>
 </div>
 
 ### 📊 Class Distribution
 
 <div align="center">
-  <img src="gambar/distribusi_kelas.png" width="600">
+  <img src="gambar/distribusi gambar per kelas.png" width="600">
   <p><em>Figure 2. Distribution of samples across classes</em></p>
 </div>
 
