@@ -19,6 +19,34 @@ Universitas Muhammadiyah Malang
 
 ---
 
+## 📑 Table of Contents
+
+1. [🌴 Oil Palm Fruit Ripeness Classification](#oil-palm-fruit-ripeness-classification)  
+2. [👤 Academic Information & Contributors](#academic-information--contributors)  
+   1. [📌 Academic Context](#academic-context)  
+   2. [👥 Contributors](#contributors)  
+3. [📌 Project Overview](#project-overview)  
+4. [📊 Dataset Description](#dataset-description)  
+   1. [📷 Sample Images per Class](#sample-images-per-class)  
+   2. [📊 Class Distribution](#class-distribution)  
+5. [🧪 Experimental Scope](#experimental-scope)  
+   1. [🔹 Classical Machine Learning](#classical-machine-learning)  
+   2. [🔹 Convolutional Neural Networks (CNN)](#convolutional-neural-networks-cnn)  
+   3. [🔹 Vision Transformer](#vision-transformer)  
+6. [🏆 Best Models (Final Selection)](#best-models-final-selection)  
+7. [📈 Training & Evaluation Results](#training--evaluation-results)  
+   1. [🔹 XGBoost + Color Features (HSV)](#xgboost--color-features-hsv)  
+   2. [🔹 EfficientNet-B0 + LoRA](#efficientnet-b0--lora)  
+   3. [🔹 MaxViT-T + LoRA](#maxvit-t--lora)  
+8. [📊 Best Model Performance Comparison](#best-model-performance-comparison)  
+9. [🧾 Conclusion](#conclusion)  
+10. [🚀 Interactive Deployment](#interactive-deployment)  
+    1. [✨ Dashboard Features](#dashboard-features)  
+11. [▶️ Run the Dashboard Locally](#run-the-dashboard-locally)
+
+
+---
+
 ## 👤 Academic Information & Contributors <a id="kontributor"></a>
 
 ### 📌 Academic Context
