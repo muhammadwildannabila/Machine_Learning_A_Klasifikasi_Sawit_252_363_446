@@ -19,8 +19,19 @@ Universitas Muhammadiyah Malang
 
 ---
 
+## 👤 Academic Information & Contributors <a id="kontributor"></a>
 
-## 👥 Contributors <a id="kontributor"></a>
+### 📌 Academic Context
+
+| Attribute | Description |
+| :-- | :-- |
+| **Lead Author** | **Muhammad Wildan Nabila** |
+| **Program** | Informatics |
+| **Course** | Machine Learning |
+| **Institution** | Universitas Muhammadiyah Malang |
+| **Academic Year** | 2024 / 2025 |
+
+### 👥 Contributors
 
 | Name | Student ID |
 |------|-----------|
@@ -28,32 +39,25 @@ Universitas Muhammadiyah Malang
 | **Irawana Juwita** | 202210370311446 |
 | **Diemas Andung Prayoga** | 202210370311363 |
 
-| Attribute | Description |
-| :-- | :-- |
-| **Program** | Informatics |
-| **Course** | Machine Learning |
-| **Institution** | Universitas Muhammadiyah Malang |
-| **Academic Year** | 2024 / 2025 |
-
-
 ---
 
 ## 📌 Project Overview
 
-Oil palm fruit ripeness significantly affects **harvest timing, oil quality, and economic value**. Manual visual inspection is subjective and inconsistent, motivating the development of an **automated image-based classification system**.
+Oil palm fruit ripeness directly affects **harvest timing, oil quality, and economic value**. Manual inspection based on human vision is subjective and inconsistent, motivating the development of an **automated image-based classification system**.
 
-This study conducts a structured comparison of **three modeling paradigms**:
-1. **Classical Machine Learning** using handcrafted features  
-2. **Deep Learning (CNN)** with transfer learning and LoRA  
-3. **Vision Transformer** with parameter-efficient fine-tuning  
+This project performs a **systematic comparison of three modeling paradigms**:
 
-Only the **best-performing model from each paradigm** is selected for in-depth evaluation and deployment.
+1. **Classical Machine Learning** using handcrafted visual features  
+2. **Convolutional Neural Networks (CNN)**, including scratch and transfer learning  
+3. **Vision Transformer architectures** with parameter-efficient fine-tuning  
+
+All models are evaluated under identical data splits, and only the **best-performing model from each paradigm** is selected for final analysis and deployment.
 
 ---
 
 ## 📊 Dataset Description
 
-- **Data Type:** RGB images  
+- **Data Type:** RGB Images  
 - **Number of Classes:** 3  
 - **Class Labels:**  
   - 🟢 Unripe (Mentah)  
@@ -63,123 +67,135 @@ Only the **best-performing model from each paradigm** is selected for in-depth e
 ### 📷 Sample Images per Class
 
 <div align="center">
-  <img src="gambar/citra perkelas.png" width="850">
-  <p><em>Figure 1. Sample oil palm fruit images for each ripeness class</em></p>
+  <img src="gambar/citra perkelas.png" width="650">
+  <p><em>Figure 1. Representative samples of oil palm fruit images for each ripeness class</em></p>
 </div>
 
 ### 📊 Class Distribution
 
 <div align="center">
-  <img src="gambar/distribusi gambar per kelas.png" width="600">
-  <p><em>Figure 2. Dataset class distribution</em></p>
+  <img src="gambar/distribusi gambar per kelas.png" width="480">
+  <p><em>Figure 2. Distribution of samples across ripeness classes</em></p>
 </div>
 
 ---
 
 ## 🧪 Experimental Scope
 
-This research evaluates multiple models and strategies before selecting the best representative from each category.
+This study explores **multiple models and learning strategies** before selecting the best representative from each paradigm.
 
 ### 🔹 Classical Machine Learning
-- SVM (Color, Texture, Gabor)
-- XGBoost (Color/HSV, Texture, Gabor)
+- SVM (without features / raw pixel baseline)
+- SVM + Color
+- SVM + Texture
+- SVM + Gabor
+- XGBoost (without handcrafted features)
+- XGBoost + Color (HSV)
+- XGBoost + Texture
+- XGBoost + Gabor
 
-### 🔹 Transfer Learning (CNN)
-- ResNet-50 (Freeze, Fine-Tuning, LoRA)
-- EfficientNet-B0 (Freeze, Fine-Tuning, LoRA)
+### 🔹 Convolutional Neural Networks (CNN)
+- CNN from Scratch
+- ResNet-50 (Frozen, Fine-Tuning, LoRA)
+- EfficientNet-B0 (Frozen, Fine-Tuning, LoRA)
 
 ### 🔹 Vision Transformer
-- ViT-B/16 (Freeze, Fine-Tuning, LoRA)
-- MaxViT-T (Freeze, Fine-Tuning, LoRA)
+- ViT-B/16 (Frozen, Fine-Tuning, LoRA)
+- MaxViT-T (Frozen, Fine-Tuning, LoRA)
+
+> 📌 *Although many configurations are evaluated, visual analysis is focused on the best-performing model from each category to ensure clarity and academic rigor.*
 
 ---
 
 ## 🏆 Best Models (Final Selection)
 
-| Category | Best Model |
-|--------|-----------|
-| Classical Machine Learning | **XGBoost + Color Features (HSV)** |
+| Paradigm | Best Model |
+|--------|------------|
+| Classical ML | **XGBoost + Color Features (HSV)** |
 | CNN (Transfer Learning) | **EfficientNet-B0 + LoRA** |
 | Vision Transformer | **MaxViT-T + LoRA** |
 
 ---
 
-## 📈 Training & Evaluation Results (Best of the Best)
+## 📈 Training & Evaluation Results  
+### *Best of the Best Models*
+
+---
 
 ### 🔹 1. XGBoost + Color Features (HSV)
 
 <div align="center">
-  <img src="gambar/ACC_XGBOOST + Color.png" width="800">
-  <img src="gambar/LOSS_XGBOOST + Color.png" width="800">
-  <p><em>Figure 3. Accuracy and loss curve of XGBoost + HSV</em></p>
+  <img src="gambar/ACC_XGBOOST + Color.png" width="520">
+  <img src="gambar/LOSS_XGBOOST + Color.png" width="520">
+  <p><em>Figure 3. Training accuracy and loss of XGBoost + HSV</em></p>
 
-  <img src="gambar/CM_XGBOOST + Color.png" width="450">
+  <img src="gambar/CM_XGBOOST + Color.png" width="360">
   <p><em>Figure 4. Confusion matrix of XGBoost + HSV</em></p>
 </div>
 
 **Analysis:**  
-XGBoost with HSV color features shows stable performance across all classes. Misclassification mainly occurs between adjacent ripeness stages, indicating visually similar color characteristics.
+This model demonstrates stable and interpretable performance. Most misclassifications occur between adjacent ripeness stages, reflecting natural visual similarity in color transitions.
 
 ---
 
 ### 🔹 2. EfficientNet-B0 + LoRA
 
 <div align="center">
-  <img src="gambar/ACC_EffecientNet-B0 + LoRA.png" width="800">
-  <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="800">
-  <p><em>Figure 5. Accuracy and loss curve of EfficientNet-B0 + LoRA</em></p>
+  <img src="gambar/ACC_EffecientNet-B0 + LoRA.png" width="520">
+  <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="520">
+  <p><em>Figure 5. Training accuracy and loss of EfficientNet-B0 + LoRA</em></p>
 
-  <img src="CM_EffecientNet-B0 + LoRA.png" width="450">
+  <img src="gambar/CM_EffecientNet-B0 + LoRA.png" width="360">
   <p><em>Figure 6. Confusion matrix of EfficientNet-B0 + LoRA</em></p>
 </div>
 
 **Analysis:**  
-EfficientNet-B0 with LoRA achieves high accuracy with significantly fewer trainable parameters. The model demonstrates strong generalization and balanced performance across classes.
+EfficientNet-B0 with LoRA achieves strong generalization while maintaining parameter efficiency. Performance is well-balanced across all classes.
 
 ---
 
 ### 🔹 3. MaxViT-T + LoRA
 
 <div align="center">
-  <img src="gambar/ACC_MaxVit-T + LoRA.png" width="800">
-  <img src="gambar/LOSS_MaxVit-T + LoRA.png" width="800">
-  <p><em>Figure 7. Accuracy and loss curve of MaxViT-T + LoRA</em></p>
+  <img src="gambar/ACC_MaxVit-T + LoRA.png" width="520">
+  <img src="gambar/LOSS_MaxVit-T + LoRA.png" width="520">
+  <p><em>Figure 7. Training accuracy and loss of MaxViT-T + LoRA</em></p>
 
-  <img src="gambar/CM_MaxVit-T + LoRA.png" width="450">
+  <img src="gambar/CM_MaxVit-T + LoRA.png" width="360">
   <p><em>Figure 8. Confusion matrix of MaxViT-T + LoRA</em></p>
 </div>
 
 **Analysis:**  
-MaxViT-T with LoRA delivers the best overall performance by effectively capturing both local and global visual patterns, resulting in superior class separation.
+MaxViT-T with LoRA provides the best overall performance by effectively capturing both local texture patterns and global spatial relationships.
 
 ---
 
-## 📊 Best Model Performance Comparison
+## 📊 Best Model Performance Summary
 
-| Model | Paradigm | Key Strength |
-|------|---------|-------------|
+| Model | Paradigm | Key Advantage |
+|------|---------|---------------|
 | **XGBoost + HSV** | Classical ML | Fast, interpretable, low computational cost |
-| **EfficientNet-B0 + LoRA** | CNN | High accuracy with parameter efficiency |
-| **MaxViT-T + LoRA** | Transformer | Best overall generalization performance |
+| **EfficientNet-B0 + LoRA** | CNN | Excellent accuracy–efficiency trade-off |
+| **MaxViT-T + LoRA** | Transformer | Best overall generalization capability |
 
 ---
 
 ## 🚀 Interactive Deployment
 
-A **Streamlit-based dashboard** is developed for real-time inference.
+A **Streamlit-based interactive dashboard** is developed for real-time ripeness prediction.
 
 🔗 **Live Demo:**  
 https://dashboard-sawit-ml-252.streamlit.app/
 
-### ✨ Features
-- Image upload & prediction
-- Probability visualization
+### ✨ Dashboard Features
+- Upload image and classify ripeness
+- Class probability visualization
 - Best-model inference
-- User-friendly interface
+- Clean and responsive UI
 
 ---
 
-## ▶️ Run Locally
+## ▶️ Run the Dashboard Locally
 
 ```bash
 git clone https://github.com/muhammadwildannabila/Machine_Learning_A_Klasifikasi_Sawit_252_363_446.git
