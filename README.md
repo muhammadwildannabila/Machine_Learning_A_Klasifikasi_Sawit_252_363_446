@@ -19,17 +19,6 @@ Universitas Muhammadiyah Malang
 
 ---
 
-## 👤 Author & Academic Context
-
-| Attribute | Description |
-| :-- | :-- |
-| **Author** | **Muhammad Wildan Nabila** |
-| **Program** | Informatics |
-| **Course** | Machine Learning |
-| **Institution** | Universitas Muhammadiyah Malang |
-| **Academic Year** | 2024 / 2025 |
-
----
 
 ## 👥 Contributors <a id="kontributor"></a>
 
@@ -136,10 +125,11 @@ XGBoost with HSV color features shows stable performance across all classes. Mis
 ### 🔹 2. EfficientNet-B0 + LoRA
 
 <div align="center">
-  <img src="gambar/efficientnet_curve.png" width="800">
+  <img src="gambar/ACC_EffecientNet-B0 + LoRA.png" width="800">
+  <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="800">
   <p><em>Figure 5. Accuracy and loss curve of EfficientNet-B0 + LoRA</em></p>
 
-  <img src="gambar/efficientnet_cm.png" width="450">
+  <img src="CM_EffecientNet-B0 + LoRA" width="450">
   <p><em>Figure 6. Confusion matrix of EfficientNet-B0 + LoRA</em></p>
 </div>
 
@@ -151,10 +141,11 @@ EfficientNet-B0 with LoRA achieves high accuracy with significantly fewer traina
 ### 🔹 3. MaxViT-T + LoRA
 
 <div align="center">
-  <img src="gambar/maxvit_curve.png" width="800">
+  <img src="gambar/ACC_MaxVit-T + LoRA.png" width="800">
+  <img src="gambar/LOSS_MaxVit-T + LoRA.png" width="800">
   <p><em>Figure 7. Accuracy and loss curve of MaxViT-T + LoRA</em></p>
 
-  <img src="gambar/maxvit_cm.png" width="450">
+  <img src="gambar/CM_MaxVit-T + LoRA.png" width="450">
   <p><em>Figure 8. Confusion matrix of MaxViT-T + LoRA</em></p>
 </div>
 
