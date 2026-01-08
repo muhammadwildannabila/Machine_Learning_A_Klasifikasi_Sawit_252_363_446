@@ -31,23 +31,40 @@ Universitas Muhammadiyah Malang
 
 ---
 
+## 👥 Contributors <a id="kontributor"></a>
+
+| Name | Student ID |
+|------|-----------|
+| **Muhammad Wildan Nabila** | 202210370311252 |
+| **Irawana Juwita** | 202210370311446 |
+| **Diemas Andung Prayoga** | 202210370311363 |
+
+| Attribute | Description |
+| :-- | :-- |
+| **Program** | Informatics |
+| **Course** | Machine Learning |
+| **Institution** | Universitas Muhammadiyah Malang |
+| **Academic Year** | 2024 / 2025 |
+
+
+---
+
 ## 📌 Project Overview
 
-Oil palm fruit ripeness directly affects **harvest quality, oil yield, and economic value**. Traditional visual inspection is subjective and inconsistent, motivating the need for an **automated computer vision-based solution**.
+Oil palm fruit ripeness significantly affects **harvest timing, oil quality, and economic value**. Manual visual inspection is subjective and inconsistent, motivating the development of an **automated image-based classification system**.
 
-This project investigates and compares **three major modeling paradigms** for ripeness classification:
+This study conducts a structured comparison of **three modeling paradigms**:
+1. **Classical Machine Learning** using handcrafted features  
+2. **Deep Learning (CNN)** with transfer learning and LoRA  
+3. **Vision Transformer** with parameter-efficient fine-tuning  
 
-1. **Classical Machine Learning** (feature-based)
-2. **Convolutional Neural Networks (CNN)** with Transfer Learning
-3. **Vision Transformer (ViT)** architectures with LoRA fine-tuning
-
-The best-performing model from each paradigm is evaluated and deployed in a **real-time Streamlit dashboard**.
+Only the **best-performing model from each paradigm** is selected for in-depth evaluation and deployment.
 
 ---
 
 ## 📊 Dataset Description
 
-- **Data Type:** RGB Images  
+- **Data Type:** RGB images  
 - **Number of Classes:** 3  
 - **Class Labels:**  
   - 🟢 Unripe (Mentah)  
@@ -58,116 +75,123 @@ The best-performing model from each paradigm is evaluated and deployed in a **re
 
 <div align="center">
   <img src="gambar/citra perkelas.png" width="850">
-  <p><em>Figure 1. Representative samples of oil palm fruit images for each ripeness class</em></p>
+  <p><em>Figure 1. Sample oil palm fruit images for each ripeness class</em></p>
 </div>
 
 ### 📊 Class Distribution
 
 <div align="center">
   <img src="gambar/distribusi gambar per kelas.png" width="600">
-  <p><em>Figure 2. Distribution of samples across classes</em></p>
+  <p><em>Figure 2. Dataset class distribution</em></p>
 </div>
 
 ---
 
-## 🧠 Experimental Framework
+## 🧪 Experimental Scope
 
-To ensure **fair and interpretable comparison**, experiments are organized into three distinct categories.
+This research evaluates multiple models and strategies before selecting the best representative from each category.
 
 ### 🔹 Classical Machine Learning
-- **XGBoost + Color Features (HSV)**
-- Acts as an interpretable and fast baseline
+- SVM (Color, Texture, Gabor)
+- XGBoost (Color/HSV, Texture, Gabor)
 
 ### 🔹 Transfer Learning (CNN)
-- **EfficientNet-B0 + LoRA**
-- Lightweight CNN with parameter-efficient adaptation
+- ResNet-50 (Freeze, Fine-Tuning, LoRA)
+- EfficientNet-B0 (Freeze, Fine-Tuning, LoRA)
 
 ### 🔹 Vision Transformer
-- **MaxViT-T + LoRA**
-- Transformer-based architecture capturing global visual context
+- ViT-B/16 (Freeze, Fine-Tuning, LoRA)
+- MaxViT-T (Freeze, Fine-Tuning, LoRA)
 
 ---
 
-## 🏆 Selected Best Models
+## 🏆 Best Models (Final Selection)
 
-Only the **best-performing model** from each paradigm is retained for final evaluation.
-
-| Paradigm | Best Model |
-|-------|------------|
-| Classical ML | **XGBoost + HSV Color Features** |
+| Category | Best Model |
+|--------|-----------|
+| Classical Machine Learning | **XGBoost + Color Features (HSV)** |
 | CNN (Transfer Learning) | **EfficientNet-B0 + LoRA** |
 | Vision Transformer | **MaxViT-T + LoRA** |
 
 ---
 
-## 📈 Training Dynamics
+## 📈 Training & Evaluation Results (Best of the Best)
 
-### 📉 Accuracy & Loss Curves (Best Models)
+### 🔹 1. XGBoost + Color Features (HSV)
 
 <div align="center">
-  <img src="gambar/learning_curve_best_models.png" width="900">
-  <p><em>Figure 3. Training and validation accuracy & loss for the selected best models</em></p>
+  <img src="gambar/ACC_XGBOOST + Color.png" width="800">
+  <img src="gambar/LOSS_XGBOOST + Color.png" width="800">
+  <p><em>Figure 3. Accuracy and loss curve of XGBoost + HSV</em></p>
+
+  <img src="gambar/CM_XGBOOST + Color.png" width="450">
+  <p><em>Figure 4. Confusion matrix of XGBoost + HSV</em></p>
 </div>
+
+**Analysis:**  
+XGBoost with HSV color features shows stable performance across all classes. Misclassification mainly occurs between adjacent ripeness stages, indicating visually similar color characteristics.
 
 ---
 
-## 🔍 Model Evaluation
-
-### 🔹 Confusion Matrices
+### 🔹 2. EfficientNet-B0 + LoRA
 
 <div align="center">
-  <img src="gambar/confusion_matrix_best_models.png" width="900">
-  <p><em>Figure 4. Confusion matrices showing classification performance of the best models</em></p>
+  <img src="gambar/efficientnet_curve.png" width="800">
+  <p><em>Figure 5. Accuracy and loss curve of EfficientNet-B0 + LoRA</em></p>
+
+  <img src="gambar/efficientnet_cm.png" width="450">
+  <p><em>Figure 6. Confusion matrix of EfficientNet-B0 + LoRA</em></p>
 </div>
+
+**Analysis:**  
+EfficientNet-B0 with LoRA achieves high accuracy with significantly fewer trainable parameters. The model demonstrates strong generalization and balanced performance across classes.
 
 ---
 
-## 📊 Comparative Summary
+### 🔹 3. MaxViT-T + LoRA
 
-| Model | Category | Strength |
-|------|--------|---------|
-| **XGBoost + HSV** | Classical ML | Interpretable & computationally efficient |
-| **EfficientNet-B0 + LoRA** | CNN | Excellent accuracy-to-parameter ratio |
-| **MaxViT-T + LoRA** | Transformer | Strong global feature modeling |
+<div align="center">
+  <img src="gambar/maxvit_curve.png" width="800">
+  <p><em>Figure 7. Accuracy and loss curve of MaxViT-T + LoRA</em></p>
+
+  <img src="gambar/maxvit_cm.png" width="450">
+  <p><em>Figure 8. Confusion matrix of MaxViT-T + LoRA</em></p>
+</div>
+
+**Analysis:**  
+MaxViT-T with LoRA delivers the best overall performance by effectively capturing both local and global visual patterns, resulting in superior class separation.
+
+---
+
+## 📊 Best Model Performance Comparison
+
+| Model | Paradigm | Key Strength |
+|------|---------|-------------|
+| **XGBoost + HSV** | Classical ML | Fast, interpretable, low computational cost |
+| **EfficientNet-B0 + LoRA** | CNN | High accuracy with parameter efficiency |
+| **MaxViT-T + LoRA** | Transformer | Best overall generalization performance |
 
 ---
 
 ## 🚀 Interactive Deployment
 
-A **Streamlit-based interactive dashboard** is developed to demonstrate real-time inference.
+A **Streamlit-based dashboard** is developed for real-time inference.
 
 🔗 **Live Demo:**  
 https://dashboard-sawit-ml-252.streamlit.app/
 
-### ✨ Dashboard Features
-- Image upload and prediction
-- Probability distribution per class
+### ✨ Features
+- Image upload & prediction
+- Probability visualization
 - Best-model inference
-- Clean and responsive interface
+- User-friendly interface
 
 ---
 
-## ▶️ Run the Dashboard Locally
+## ▶️ Run Locally
 
-### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/muhammadwildannabila/Machine_Learning_A_Klasifikasi_Sawit_252_363_446.git
 cd Machine_Learning_A_Klasifikasi_Sawit_252_363_446
-```
-### 2️⃣ Clone Repository
-```bash
 pip install -r requirements.txt
-```
-### 3️⃣ Launch Application
-```bash
 streamlit run app.py
-```
-
-## 👥 Kontributor <a id="kontributor"></a>
-
-| Nama | NIM |
-|------|-----|
-| **Muhammad Wildan Nabila** | 202210370311252 |
-| **Irawana Juwita** | 202210370311446 |
-| **Diemas Andung Prayoga** | 202210370311363 |
-
