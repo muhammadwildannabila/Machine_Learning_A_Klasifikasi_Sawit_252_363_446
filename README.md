@@ -43,15 +43,15 @@ Universitas Muhammadiyah Malang
 
 ## 📌 Project Overview
 
-Oil palm fruit ripeness directly affects **harvest timing, oil quality, and economic value**. Manual inspection based on human vision is subjective and inconsistent, motivating the development of an **automated image-based classification system**.
+Oil palm fruit ripeness significantly affects **harvest timing, oil quality, and economic value**. Conventional manual inspection is subjective and prone to inconsistency, motivating the development of an **automated computer vision-based classification system**.
 
-This project performs a **systematic comparison of three modeling paradigms**:
+This project conducts a **systematic experimental comparison** across three major modeling paradigms:
 
 1. **Classical Machine Learning** using handcrafted visual features  
 2. **Convolutional Neural Networks (CNN)**, including scratch and transfer learning  
-3. **Vision Transformer architectures** with parameter-efficient fine-tuning  
+3. **Vision Transformer architectures** with parameter-efficient fine-tuning (LoRA)
 
-All models are evaluated under identical data splits, and only the **best-performing model from each paradigm** is selected for final analysis and deployment.
+Only the **best-performing model from each paradigm** is selected for detailed analysis and deployment.
 
 ---
 
@@ -67,29 +67,26 @@ All models are evaluated under identical data splits, and only the **best-perfor
 ### 📷 Sample Images per Class
 
 <div align="center">
-  <img src="gambar/citra perkelas.png" width="650">
-  <p><em>Figure 1. Representative samples of oil palm fruit images for each ripeness class</em></p>
+  <img src="gambar/citra perkelas.png" width="620">
+  <p><em>Figure 1. Representative oil palm fruit images for each ripeness class</em></p>
 </div>
 
 ### 📊 Class Distribution
 
 <div align="center">
-  <img src="gambar/distribusi gambar per kelas.png" width="480">
-  <p><em>Figure 2. Distribution of samples across ripeness classes</em></p>
+  <img src="gambar/distribusi gambar per kelas.png" width="460">
+  <p><em>Figure 2. Dataset class distribution</em></p>
 </div>
 
 ---
 
 ## 🧪 Experimental Scope
 
-This study explores **multiple models and learning strategies** before selecting the best representative from each paradigm.
+Multiple models and configurations were evaluated before selecting the final candidates.
 
 ### 🔹 Classical Machine Learning
-- SVM (without features / raw pixel baseline)
-- SVM + Color
-- SVM + Texture
-- SVM + Gabor
-- XGBoost (without handcrafted features)
+- SVM (raw baseline, color, texture, gabor)
+- XGBoost (raw baseline)
 - XGBoost + Color (HSV)
 - XGBoost + Texture
 - XGBoost + Gabor
@@ -103,7 +100,7 @@ This study explores **multiple models and learning strategies** before selecting
 - ViT-B/16 (Frozen, Fine-Tuning, LoRA)
 - MaxViT-T (Frozen, Fine-Tuning, LoRA)
 
-> 📌 *Although many configurations are evaluated, visual analysis is focused on the best-performing model from each category to ensure clarity and academic rigor.*
+> 📌 *Although numerous configurations were tested, this README focuses on the best-performing model from each paradigm to maintain clarity and academic rigor.*
 
 ---
 
@@ -125,73 +122,88 @@ This study explores **multiple models and learning strategies** before selecting
 ### 🔹 1. XGBoost + Color Features (HSV)
 
 <div align="center">
-  <img src="gambar/ACC_XGBOOST + Color.png" width="520">
-  <img src="gambar/LOSS_XGBOOST + Color.png" width="520">
+  <img src="gambar/ACC_XGBOOST + Color.png" width="500">
+  <img src="gambar/LOSS_XGBOOST + Color.png" width="500">
   <p><em>Figure 3. Training accuracy and loss of XGBoost + HSV</em></p>
 
-  <img src="gambar/CM_XGBOOST + Color.png" width="360">
+  <img src="gambar/CM_XGBOOST + Color.png" width="340">
   <p><em>Figure 4. Confusion matrix of XGBoost + HSV</em></p>
 </div>
 
+**Accuracy:** **97.11%**  
 **Analysis:**  
-This model demonstrates stable and interpretable performance. Most misclassifications occur between adjacent ripeness stages, reflecting natural visual similarity in color transitions.
+XGBoost with HSV color features provides a strong and interpretable baseline. Most errors occur between adjacent ripeness stages, reflecting natural color similarity.
 
 ---
 
 ### 🔹 2. EfficientNet-B0 + LoRA
 
 <div align="center">
-  <img src="gambar/ACC_EffecientNet-B0 + LoRA.png" width="520">
-  <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="520">
+  <img src="gambar/ACC_EffecientNet-B0 + LoRA.png" width="500">
+  <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="500">
   <p><em>Figure 5. Training accuracy and loss of EfficientNet-B0 + LoRA</em></p>
 
-  <img src="gambar/CM_EffecientNet-B0 + LoRA.png" width="360">
+  <img src="gambar/CM_EffecientNet-B0 + LoRA.png" width="340">
   <p><em>Figure 6. Confusion matrix of EfficientNet-B0 + LoRA</em></p>
 </div>
 
+**Accuracy:** **97.78%**  
 **Analysis:**  
-EfficientNet-B0 with LoRA achieves strong generalization while maintaining parameter efficiency. Performance is well-balanced across all classes.
+EfficientNet-B0 with LoRA achieves excellent performance while maintaining parameter efficiency, offering a strong balance between accuracy and computational cost.
 
 ---
 
 ### 🔹 3. MaxViT-T + LoRA
 
 <div align="center">
-  <img src="gambar/ACC_MaxVit-T + LoRA.png" width="520">
-  <img src="gambar/LOSS_MaxVit-T + LoRA.png" width="520">
+  <img src="gambar/ACC_MaxVit-T + LoRA.png" width="500">
+  <img src="gambar/LOSS_MaxVit-T + LoRA.png" width="500">
   <p><em>Figure 7. Training accuracy and loss of MaxViT-T + LoRA</em></p>
 
-  <img src="gambar/CM_MaxVit-T + LoRA.png" width="360">
+  <img src="gambar/CM_MaxVit-T + LoRA.png" width="340">
   <p><em>Figure 8. Confusion matrix of MaxViT-T + LoRA</em></p>
 </div>
 
+**Accuracy:** **98.67%**  
 **Analysis:**  
-MaxViT-T with LoRA provides the best overall performance by effectively capturing both local texture patterns and global spatial relationships.
+MaxViT-T with LoRA achieves the highest accuracy by effectively modeling both local texture details and global spatial relationships, resulting in superior generalization.
 
 ---
 
-## 📊 Best Model Performance Summary
+## 📊 Best Model Performance Comparison
 
-| Model | Paradigm | Key Advantage |
-|------|---------|---------------|
-| **XGBoost + HSV** | Classical ML | Fast, interpretable, low computational cost |
-| **EfficientNet-B0 + LoRA** | CNN | Excellent accuracy–efficiency trade-off |
-| **MaxViT-T + LoRA** | Transformer | Best overall generalization capability |
+| Model | Paradigm | Accuracy | Key Strength |
+|------|---------|----------|--------------|
+| **XGBoost + HSV** | Classical ML | **97.11%** | Fast & interpretable |
+| **EfficientNet-B0 + LoRA** | CNN | **97.78%** | Accuracy–efficiency balance |
+| **MaxViT-T + LoRA** | Transformer | **98.67%** | Best overall performance |
+
+---
+
+## 🧾 Conclusion
+
+Based on experimental results, the following conclusions are drawn:
+
+- **XGBoost + HSV** demonstrates that handcrafted color features remain highly effective, achieving **97.11% accuracy** with minimal computational overhead.
+- **EfficientNet-B0 + LoRA** provides a strong trade-off between performance and efficiency, achieving **97.78% accuracy** with significantly fewer trainable parameters.
+- **MaxViT-T + LoRA** achieves the highest performance with **98.67% accuracy**, confirming the advantage of Transformer-based architectures with parameter-efficient fine-tuning for complex visual classification tasks.
+
+Overall, **Vision Transformer models with LoRA fine-tuning** emerge as the most robust solution for oil palm fruit ripeness classification, while CNN and classical approaches remain competitive for resource-constrained deployments.
 
 ---
 
 ## 🚀 Interactive Deployment
 
-A **Streamlit-based interactive dashboard** is developed for real-time ripeness prediction.
+A **Streamlit-based interactive dashboard** is provided for real-time inference.
 
 🔗 **Live Demo:**  
 https://dashboard-sawit-ml-252.streamlit.app/
 
 ### ✨ Dashboard Features
-- Upload image and classify ripeness
+- Image upload and ripeness prediction
 - Class probability visualization
 - Best-model inference
-- Clean and responsive UI
+- Clean and responsive interface
 
 ---
 
