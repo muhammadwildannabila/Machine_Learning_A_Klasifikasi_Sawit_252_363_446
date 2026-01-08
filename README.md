@@ -129,7 +129,7 @@ XGBoost with HSV color features shows stable performance across all classes. Mis
   <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="800">
   <p><em>Figure 5. Accuracy and loss curve of EfficientNet-B0 + LoRA</em></p>
 
-  <img src="CM_EffecientNet-B0 + LoRA" width="450">
+  <img src="CM_EffecientNet-B0 + LoRA.png" width="450">
   <p><em>Figure 6. Confusion matrix of EfficientNet-B0 + LoRA</em></p>
 </div>
 
