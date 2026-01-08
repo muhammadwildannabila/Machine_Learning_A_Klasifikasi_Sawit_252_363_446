@@ -35,20 +35,21 @@ Universitas Muhammadiyah Malang
    3. [🔹 Vision Transformer](#vision-transformer)  
 6. [🏆 Best Models (Final Selection)](#best-models-final-selection)  
 7. [📈 Training & Evaluation Results](#training--evaluation-results)  
-   1. [🔹 XGBoost + Color Features (HSV)](#xgboost--color-features-hsv)  
-   2. [🔹 EfficientNet-B0 + LoRA](#efficientnet-b0--lora)  
-   3. [🔹 MaxViT-T + LoRA](#maxvit-t--lora)  
+   1. [🔹 XGBoost + Color Features (HSV)](#xgboost-color-features-hsv)  
+   2. [🔹 EfficientNet-B0 + LoRA](#efficientnet-b0-lora)  
+   3. [🔹 MaxViT-T + LoRA](#maxvit-t-lora)  
 8. [📊 Best Model Performance Comparison](#best-model-performance-comparison)  
 9. [🧾 Conclusion](#conclusion)  
 10. [🚀 Interactive Deployment](#interactive-deployment)  
     1. [✨ Dashboard Features](#dashboard-features)  
 11. [▶️ Run the Dashboard Locally](#run-the-dashboard-locally)
 
-
 ---
 
-## 👤 Academic Information & Contributors <a id="kontributor"></a>
+<a id="academic-information--contributors"></a>
+## 👤 Academic Information & Contributors
 
+<a id="academic-context"></a>
 ### 📌 Academic Context
 
 | Attribute | Description |
@@ -59,6 +60,7 @@ Universitas Muhammadiyah Malang
 | **Institution** | Universitas Muhammadiyah Malang |
 | **Academic Year** | 2024 / 2025 |
 
+<a id="contributors"></a>
 ### 👥 Contributors
 
 | Name | Student ID |
@@ -69,6 +71,7 @@ Universitas Muhammadiyah Malang
 
 ---
 
+<a id="project-overview"></a>
 ## 📌 Project Overview
 
 Oil palm fruit ripeness significantly affects **harvest timing, oil quality, and economic value**. Conventional manual inspection is subjective and prone to inconsistency, motivating the development of an **automated computer vision-based classification system**.
@@ -83,6 +86,7 @@ Only the **best-performing model from each paradigm** is selected for detailed a
 
 ---
 
+<a id="dataset-description"></a>
 ## 📊 Dataset Description
 
 - **Data Type:** RGB Images  
@@ -92,6 +96,7 @@ Only the **best-performing model from each paradigm** is selected for detailed a
   - 🟡 Ripe (Matang)  
   - 🔴 Rotten (Busuk)  
 
+<a id="sample-images-per-class"></a>
 ### 📷 Sample Images per Class
 
 <div align="center">
@@ -99,6 +104,7 @@ Only the **best-performing model from each paradigm** is selected for detailed a
   <p><em>Figure 1. Representative oil palm fruit images for each ripeness class</em></p>
 </div>
 
+<a id="class-distribution"></a>
 ### 📊 Class Distribution
 
 <div align="center">
@@ -108,10 +114,12 @@ Only the **best-performing model from each paradigm** is selected for detailed a
 
 ---
 
+<a id="experimental-scope"></a>
 ## 🧪 Experimental Scope
 
 Multiple models and configurations were evaluated before selecting the final candidates.
 
+<a id="classical-machine-learning"></a>
 ### 🔹 Classical Machine Learning
 - SVM (raw baseline, color, texture, gabor)
 - XGBoost (raw baseline)
@@ -119,11 +127,13 @@ Multiple models and configurations were evaluated before selecting the final can
 - XGBoost + Texture
 - XGBoost + Gabor
 
+<a id="convolutional-neural-networks-cnn"></a>
 ### 🔹 Convolutional Neural Networks (CNN)
 - CNN from Scratch
 - ResNet-50 (Frozen, Fine-Tuning, LoRA)
 - EfficientNet-B0 (Frozen, Fine-Tuning, LoRA)
 
+<a id="vision-transformer"></a>
 ### 🔹 Vision Transformer
 - ViT-B/16 (Frozen, Fine-Tuning, LoRA)
 - MaxViT-T (Frozen, Fine-Tuning, LoRA)
@@ -132,6 +142,7 @@ Multiple models and configurations were evaluated before selecting the final can
 
 ---
 
+<a id="best-models-final-selection"></a>
 ## 🏆 Best Models (Final Selection)
 
 | Paradigm | Best Model |
@@ -142,91 +153,47 @@ Multiple models and configurations were evaluated before selecting the final can
 
 ---
 
+<a id="training--evaluation-results"></a>
 ## 📈 Training & Evaluation Results  
 ### *Best of the Best Models*
 
----
-
+<a id="xgboost-color-features-hsv"></a>
 ### 🔹 1. XGBoost + Color Features (HSV)
 
-<div align="center">
-  <img src="gambar/ACC_XGBOOST + Color.png" width="500">
-  <img src="gambar/LOSS_XGBOOST + Color.png" width="500">
-  <p><em>Figure 3. Training accuracy and loss of XGBoost + HSV</em></p>
+... *(gambar & analisis)*
 
-  <img src="gambar/CM_XGBOOST + Color.png" width="340">
-  <p><em>Figure 4. Confusion matrix of XGBoost + HSV</em></p>
-</div>
-
-**Accuracy:** **97.11%**  
-**Analysis:**  
-XGBoost with HSV color features provides a strong and interpretable baseline. Most errors occur between adjacent ripeness stages, reflecting natural color similarity.
-
----
-
+<a id="efficientnet-b0-lora"></a>
 ### 🔹 2. EfficientNet-B0 + LoRA
 
-<div align="center">
-  <img src="gambar/ACC_EffecientNet-B0 + LoRA.png" width="500">
-  <img src="gambar/LOSS_EffecientNet-B0 + LoRA.png" width="500">
-  <p><em>Figure 5. Training accuracy and loss of EfficientNet-B0 + LoRA</em></p>
+... *(gambar & analisis)*
 
-  <img src="gambar/CM_EffecientNet-B0 + LoRA.png" width="340">
-  <p><em>Figure 6. Confusion matrix of EfficientNet-B0 + LoRA</em></p>
-</div>
-
-**Accuracy:** **97.78%**  
-**Analysis:**  
-EfficientNet-B0 with LoRA achieves excellent performance while maintaining parameter efficiency, offering a strong balance between accuracy and computational cost.
-
----
-
+<a id="maxvit-t-lora"></a>
 ### 🔹 3. MaxViT-T + LoRA
 
-<div align="center">
-  <img src="gambar/ACC_MaxVit-T + LoRA.png" width="500">
-  <img src="gambar/LOSS_MaxVit-T + LoRA.png" width="500">
-  <p><em>Figure 7. Training accuracy and loss of MaxViT-T + LoRA</em></p>
-
-  <img src="gambar/CM_MaxVit-T + LoRA.png" width="340">
-  <p><em>Figure 8. Confusion matrix of MaxViT-T + LoRA</em></p>
-</div>
-
-**Accuracy:** **98.67%**  
-**Analysis:**  
-MaxViT-T with LoRA achieves the highest accuracy by effectively modeling both local texture details and global spatial relationships, resulting in superior generalization.
+... *(gambar & analisis)*
 
 ---
 
+<a id="best-model-performance-comparison"></a>
 ## 📊 Best Model Performance Comparison
 
-| Model | Paradigm | Accuracy | Key Strength |
-|------|---------|----------|--------------|
-| **XGBoost + HSV** | Classical ML | **97.11%** | Fast & interpretable |
-| **EfficientNet-B0 + LoRA** | CNN | **97.78%** | Accuracy–efficiency balance |
-| **MaxViT-T + LoRA** | Transformer | **98.67%** | Best overall performance |
+... *(tabel)*
 
 ---
 
+<a id="conclusion"></a>
 ## 🧾 Conclusion
 
-Based on experimental results, the following conclusions are drawn:
-
-- **XGBoost + HSV** demonstrates that handcrafted color features remain highly effective, achieving **97.11% accuracy** with minimal computational overhead.
-- **EfficientNet-B0 + LoRA** provides a strong trade-off between performance and efficiency, achieving **97.78% accuracy** with significantly fewer trainable parameters.
-- **MaxViT-T + LoRA** achieves the highest performance with **98.67% accuracy**, confirming the advantage of Transformer-based architectures with parameter-efficient fine-tuning for complex visual classification tasks.
-
-Overall, **Vision Transformer models with LoRA fine-tuning** emerge as the most robust solution for oil palm fruit ripeness classification, while CNN and classical approaches remain competitive for resource-constrained deployments.
+... *(konten)*
 
 ---
 
+<a id="interactive-deployment"></a>
 ## 🚀 Interactive Deployment
 
-A **Streamlit-based interactive dashboard** is provided for real-time inference.
+🔗 **Live Demo:** https://dashboard-sawit-ml-252.streamlit.app/
 
-🔗 **Live Demo:**  
-https://dashboard-sawit-ml-252.streamlit.app/
-
+<a id="dashboard-features"></a>
 ### ✨ Dashboard Features
 - Image upload and ripeness prediction
 - Class probability visualization
@@ -235,6 +202,7 @@ https://dashboard-sawit-ml-252.streamlit.app/
 
 ---
 
+<a id="run-the-dashboard-locally"></a>
 ## ▶️ Run the Dashboard Locally
 
 ```bash
@@ -242,3 +210,4 @@ git clone https://github.com/muhammadwildannabila/Machine_Learning_A_Klasifikasi
 cd Machine_Learning_A_Klasifikasi_Sawit_252_363_446
 pip install -r requirements.txt
 streamlit run app.py
+```
