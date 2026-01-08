@@ -1,3 +1,4 @@
+<a id="top"></a>
 # 🌴 Oil Palm Fruit Ripeness Classification  
 ### A Comparative Study of Classical Machine Learning, CNN, and Vision Transformer Models
 
@@ -21,35 +22,22 @@ Universitas Muhammadiyah Malang
 
 ## 📑 Table of Contents
 
-1. [🌴 Oil Palm Fruit Ripeness Classification](#oil-palm-fruit-ripeness-classification)  
-2. [👤 Academic Information & Contributors](#academic-information--contributors)  
-   1. [📌 Academic Context](#academic-context)  
-   2. [👥 Contributors](#contributors)  
-3. [📌 Project Overview](#project-overview)  
-4. [📊 Dataset Description](#dataset-description)  
-   1. [📷 Sample Images per Class](#sample-images-per-class)  
-   2. [📊 Class Distribution](#class-distribution)  
-5. [🧪 Experimental Scope](#experimental-scope)  
-   1. [🔹 Classical Machine Learning](#classical-machine-learning)  
-   2. [🔹 Convolutional Neural Networks (CNN)](#convolutional-neural-networks-cnn)  
-   3. [🔹 Vision Transformer](#vision-transformer)  
-6. [🏆 Best Models (Final Selection)](#best-models-final-selection)  
-7. [📈 Training & Evaluation Results](#training--evaluation-results)  
-   1. [🔹 XGBoost + Color Features (HSV)](#xgboost-color-features-hsv)  
-   2. [🔹 EfficientNet-B0 + LoRA](#efficientnet-b0-lora)  
-   3. [🔹 MaxViT-T + LoRA](#maxvit-t-lora)  
-8. [📊 Best Model Performance Comparison](#best-model-performance-comparison)  
-9. [🧾 Conclusion](#conclusion)  
-10. [🚀 Interactive Deployment](#interactive-deployment)  
-    1. [✨ Dashboard Features](#dashboard-features)  
-11. [▶️ Run the Dashboard Locally](#run-the-dashboard-locally)
+1. [Academic Information & Contributors](#academic)
+2. [Project Overview](#overview)
+3. [Dataset Description](#dataset)
+4. [Experimental Scope](#experiment)
+5. [Best Models (Final Selection)](#best-model)
+6. [Training & Evaluation Results](#results)
+7. [Best Model Performance Comparison](#comparison)
+8. [Conclusion](#conclusion)
+9. [Interactive Deployment](#deployment)
+10. [Run the Dashboard Locally](#run-local)
 
 ---
 
-<a id="academic-information--contributors"></a>
+<a id="academic"></a>
 ## 👤 Academic Information & Contributors
 
-<a id="academic-context"></a>
 ### 📌 Academic Context
 
 | Attribute | Description |
@@ -60,7 +48,6 @@ Universitas Muhammadiyah Malang
 | **Institution** | Universitas Muhammadiyah Malang |
 | **Academic Year** | 2024 / 2025 |
 
-<a id="contributors"></a>
 ### 👥 Contributors
 
 | Name | Student ID |
@@ -71,7 +58,7 @@ Universitas Muhammadiyah Malang
 
 ---
 
-<a id="project-overview"></a>
+<a id="overview"></a>
 ## 📌 Project Overview
 
 Oil palm fruit ripeness significantly affects **harvest timing, oil quality, and economic value**. Conventional manual inspection is subjective and prone to inconsistency, motivating the development of an **automated computer vision-based classification system**.
@@ -86,7 +73,7 @@ Only the **best-performing model from each paradigm** is selected for detailed a
 
 ---
 
-<a id="dataset-description"></a>
+<a id="dataset"></a>
 ## 📊 Dataset Description
 
 - **Data Type:** RGB Images  
@@ -96,30 +83,25 @@ Only the **best-performing model from each paradigm** is selected for detailed a
   - 🟡 Ripe (Matang)  
   - 🔴 Rotten (Busuk)  
 
-<a id="sample-images-per-class"></a>
 ### 📷 Sample Images per Class
 
 <div align="center">
-  <img src="gambar/citra perkelas.png" width="620">
+  <img src="gambar/citra perkelas.png" width="600">
   <p><em>Figure 1. Representative oil palm fruit images for each ripeness class</em></p>
 </div>
 
-<a id="class-distribution"></a>
 ### 📊 Class Distribution
 
 <div align="center">
-  <img src="gambar/distribusi gambar per kelas.png" width="460">
+  <img src="gambar/distribusi gambar per kelas.png" width="450">
   <p><em>Figure 2. Dataset class distribution</em></p>
 </div>
 
 ---
 
-<a id="experimental-scope"></a>
+<a id="experiment"></a>
 ## 🧪 Experimental Scope
 
-Multiple models and configurations were evaluated before selecting the final candidates.
-
-<a id="classical-machine-learning"></a>
 ### 🔹 Classical Machine Learning
 - SVM (raw baseline, color, texture, gabor)
 - XGBoost (raw baseline)
@@ -127,82 +109,82 @@ Multiple models and configurations were evaluated before selecting the final can
 - XGBoost + Texture
 - XGBoost + Gabor
 
-<a id="convolutional-neural-networks-cnn"></a>
 ### 🔹 Convolutional Neural Networks (CNN)
 - CNN from Scratch
 - ResNet-50 (Frozen, Fine-Tuning, LoRA)
 - EfficientNet-B0 (Frozen, Fine-Tuning, LoRA)
 
-<a id="vision-transformer"></a>
 ### 🔹 Vision Transformer
 - ViT-B/16 (Frozen, Fine-Tuning, LoRA)
 - MaxViT-T (Frozen, Fine-Tuning, LoRA)
 
-> 📌 *Although numerous configurations were tested, this README focuses on the best-performing model from each paradigm to maintain clarity and academic rigor.*
+> *This README highlights only the best-performing configuration from each paradigm to ensure clarity and academic rigor.*
 
 ---
 
-<a id="best-models-final-selection"></a>
+<a id="best-model"></a>
 ## 🏆 Best Models (Final Selection)
 
 | Paradigm | Best Model |
 |--------|------------|
 | Classical ML | **XGBoost + Color Features (HSV)** |
-| CNN (Transfer Learning) | **EfficientNet-B0 + LoRA** |
-| Vision Transformer | **MaxViT-T + LoRA** |
+| CNN | **EfficientNet-B0 + LoRA** |
+| Transformer | **MaxViT-T + LoRA** |
 
 ---
 
-<a id="training--evaluation-results"></a>
-## 📈 Training & Evaluation Results  
-### *Best of the Best Models*
+<a id="results"></a>
+## 📈 Training & Evaluation Results
 
-<a id="xgboost-color-features-hsv"></a>
-### 🔹 1. XGBoost + Color Features (HSV)
+### 🔹 XGBoost + HSV  
+**Accuracy:** **97.11%**  
+Strong interpretable baseline; minor confusion occurs between adjacent ripeness stages.
 
-... *(gambar & analisis)*
+### 🔹 EfficientNet-B0 + LoRA  
+**Accuracy:** **97.78%**  
+Excellent trade-off between accuracy and computational efficiency.
 
-<a id="efficientnet-b0-lora"></a>
-### 🔹 2. EfficientNet-B0 + LoRA
-
-... *(gambar & analisis)*
-
-<a id="maxvit-t-lora"></a>
-### 🔹 3. MaxViT-T + LoRA
-
-... *(gambar & analisis)*
+### 🔹 MaxViT-T + LoRA  
+**Accuracy:** **98.67%**  
+Best overall performance, capturing both local texture and global context.
 
 ---
 
-<a id="best-model-performance-comparison"></a>
+<a id="comparison"></a>
 ## 📊 Best Model Performance Comparison
 
-... *(tabel)*
+| Model | Paradigm | Accuracy | Strength |
+|------|---------|----------|---------|
+| XGBoost + HSV | Classical ML | 97.11% | Fast & interpretable |
+| EfficientNet-B0 + LoRA | CNN | 97.78% | Efficient & accurate |
+| MaxViT-T + LoRA | Transformer | **98.67%** | Best generalization |
 
 ---
 
 <a id="conclusion"></a>
 ## 🧾 Conclusion
 
-... *(konten)*
+Vision Transformer models with **LoRA fine-tuning** achieve the highest accuracy, while CNN and classical approaches remain strong alternatives for resource-limited environments.
 
 ---
 
-<a id="interactive-deployment"></a>
+<a id="deployment"></a>
 ## 🚀 Interactive Deployment
 
-🔗 **Live Demo:** https://dashboard-sawit-ml-252.streamlit.app/
+A Streamlit dashboard enables real-time inference.
 
-<a id="dashboard-features"></a>
+🔗 **Live Demo:**  
+https://dashboard-sawit-ml-252.streamlit.app/
+
 ### ✨ Dashboard Features
-- Image upload and ripeness prediction
-- Class probability visualization
+- Image upload & prediction
+- Probability visualization
 - Best-model inference
-- Clean and responsive interface
+- Responsive UI
 
 ---
 
-<a id="run-the-dashboard-locally"></a>
+<a id="run-local"></a>
 ## ▶️ Run the Dashboard Locally
 
 ```bash
@@ -210,4 +192,3 @@ git clone https://github.com/muhammadwildannabila/Machine_Learning_A_Klasifikasi
 cd Machine_Learning_A_Klasifikasi_Sawit_252_363_446
 pip install -r requirements.txt
 streamlit run app.py
-```
